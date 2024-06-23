@@ -1,11 +1,10 @@
 # YouTube Data Api
-Hi, I am Mykola Lehkyi and I am Software Engineer.
 ## Project Overview
-YT Data Api is an ASP.NET Core Razor Pages application designed to fetch YouTube video statistics and snippets from a specified playlist. This application makes use of the YouTube Data API to pull data dynamically based on playlist IDs provided.
+Hi, I am Mykola Lehkyi and I am Software Engineer. YT Data Api is an ASP.NET Core Razor Pages application designed to fetch YouTube video statistics and snippets from a specified playlist. This application makes use of the YouTube Data API to pull data dynamically based on playlist IDs provided.
 
-Azure part: https://github.com/mykolalehkyi/SaveYouTubeVideoStatistics/
-Web Api part: https://github.com/mykolalehkyi/YT_Data_Api
-Angular client part: https://github.com/mykolalehkyi/epz-youtube-api 
+Azure part: https://github.com/mykolalehkyi/SaveYouTubeVideoStatistics/ <br/>
+Web Api part: https://github.com/mykolalehkyi/YT_Data_Api <br/>
+Angular client part: https://github.com/mykolalehkyi/epz-youtube-api <br/>
 
 ## Features
 - Fetching videos from a YouTube playlist.
