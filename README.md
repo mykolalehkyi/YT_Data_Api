@@ -1,44 +1,31 @@
-# SaveYouTubeVideosStatistics
+# YouTube Data Api
 Hi, I am Mykola Lehkyi and I am Software Engineer.
-This repository contains a C# Azure Function that retrieves YouTube video statistics and stores them in Azure Blob Storage. The function is triggered every four hours and updates a JSON file with the latest video statistics.
+## Project Overview
+YT Data Api is an ASP.NET Core Razor Pages application designed to fetch YouTube video statistics and snippets from a specified playlist. This application makes use of the YouTube Data API to pull data dynamically based on playlist IDs provided.
 
+Azure part: https://github.com/mykolalehkyi/SaveYouTubeVideoStatistics/
+Web Api part: https://github.com/mykolalehkyi/YT_Data_Api
+Angular client part: https://github.com/mykolalehkyi/epz-youtube-api 
+
+## Features
+- Fetching videos from a YouTube playlist.
+- Retrieving detailed statistics and snippet data for each video in the playlist.
+- Dynamic API key management via environment variables.
 ## Prerequisites
-Before you begin, ensure you have the following:
-- An active Azure account.
-- Azure Storage Account and a Blob Container.
-- YouTube Data API key.
-- .NET SDK installed on your local machine.
+- .NET 6.0 SDK or later
+- An IDE like Visual Studio or VS Code
+- A valid YouTube Data API key set in the environment variables
+## Usage
+The application is set up to trigger API calls to YouTube on accessing the home page (GET request). It will fetch videos from the specified playlist and display their statistics and snippet information. Adjust the playlist ID in the code to fetch different playlists.
 
-## Configuration
-Azure Storage Account: Update the local.settings.json file with your Azure Storage Account connection string.
-Copy code
-```
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "<Your Blob Connection String>",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "BlobConnectionString": "<Your Blob Connection String>"
-  }
-}
-```
-YouTube Data API Key: Update the youtubeDataApiKey variable in the Function1 class with your YouTube Data API key.
-```csharp
-string youtubeDataApiKey = "YOUR_YOUTUBE_DATA_API_KEY";
-```
-The function is set to trigger every four hours. It retrieves the latest video statistics from a specified YouTube playlist and appends the data to a JSON file stored in Azure Blob Storage.
+## API Reference
+- GetVideosFromPlaylist(string playlistId)
+Fetches video items from a specified YouTube playlist.
 
-## Code Overview
-- Namespace: SaveYouTubeVideosStatistics
-- Class: Function1
-- youtubeDataApiKey: Stores the YouTube Data API key.
-- Run: The main function triggered by a TimerTrigger every four hours. It retrieves video statistics and appends them to a JSON file in Azure Blob Storage.
-- AppendVideosData: Appends the retrieved video statistics to the existing JSON file in Azure Blob Storage.
-- GetVideosFromPlaylist: Retrieves videos from a specified YouTube playlist.
-- GetVideoStatistics: Retrieves statistics for a specific YouTube video.
-- MakeURLFromQuery: Constructs a URL from the base URL and query parameters.
-- ParseModel: Parses the YouTube statistics and snippet model into a simple model.
-## Models
-- YouTubePlaylistModel: Represents the response model for a YouTube playlist.
-- YouTubeStatisticsSnippetModel: Represents the response model for YouTube video statistics and snippet.
-- VideoStatisticsSimpleModel: A simplified model for storing video statistics.
+Parameters: playlistId - The YouTube playlist ID.
+Returns: A list of video items with content details.
+- GetVideoStatistics(string videoId)
+Fetches statistics and snippet data for a given YouTube video ID.
+
+Parameters: videoId - The YouTube video ID.
+Returns: Detailed statistics and snippet information for the video.
